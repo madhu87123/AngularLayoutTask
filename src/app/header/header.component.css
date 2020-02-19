@@ -1,6 +1,5 @@
 
 body {
-    margin: 0px;
     height: 2000px;
   }
   
@@ -14,10 +13,12 @@ body {
     box-shadow:5px 5px 5px  rgb(160, 158, 158);
   }
   
-   h2 {
+   p {
     float: left;
     display: block;
     color:white;
+    font-size: 5vw 15vh;
+
   }
   
   
