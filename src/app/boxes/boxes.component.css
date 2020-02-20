@@ -1,0 +1,38 @@
+/* body{
+    margin-top: 5vh;  
+} */
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 18vh;
+    
+  }
+  
+  .container div {
+    
+  background-color: #f1f1f1;
+  width: 350px;
+  height: 400px;
+  margin: 15px;
+  padding: 1vw;
+  text-align: center;
+  line-height: 30px;
+  font-size: 20px;
+  box-shadow:3px 3px 3px 3px  rgb(160, 158, 158);
+  }
+  .container div img{
+       height: 50%;
+       width: 100%;
+  }
+  .btn{
+      float: right; 
+      
+  }
+  #matId{
+      position: fixed;
+      bottom: 30px;
+      right: 20px;
+      font-size: xx-large;
+
+  }
