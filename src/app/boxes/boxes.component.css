@@ -1,25 +1,22 @@
- body{
-    margin-top: 3vh;  
-} 
+
 
 .container {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 10vh;
+    margin-top: 40px;
   }
    
   .container div {   
   background-color: #f1f1f1;
-  width: 350px;
-  height: 350px;
+  width: 330px;
+  height: 450px;
   margin: 15px;
   padding: 1vw;
   font-size: 20px;
   box-shadow:3px 3px 3px 3px  rgb(160, 158, 158);
   }
-
   .container div img{
-       height: 50%;
+       height: 40%;
        width: 100%;
   }
   .btn{

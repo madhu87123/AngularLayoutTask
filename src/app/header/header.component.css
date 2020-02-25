@@ -1,27 +1,23 @@
 
-/* body {
-    height: 2000px;
-  }
-   */
+
   .navbar {
-    background-color: rgb(78, 127, 218);
+    background-color: rgb(46, 177, 194);
     position: fixed;
-    /* height: 10%; */
     top: 0;
     left:0;
     width: 100%;
     box-shadow:5px 5px 5px  rgb(160, 158, 158);
   }
   
-   p {
+   div {
     float: left;
     display: block;
     color:white;
-    font-size: 4vw 4vh;
+    font-size: 4px 8px;
     padding: 1vw 1vw 1vw 1vw;
-    opacity: 1;
-    
+    opacity: 1;  
   }
+
  
   
   
