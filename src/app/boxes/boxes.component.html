@@ -1,36 +1,3 @@
-<!-- <div class="container">
-    <div>
-        <h2>JAVASCRIPT</h2>
-        <img src="assets/images/js.jpg" alt="JAVASCRIPT">
-        <p>
-            JS is programming
-            language of HTML and Web.
-            It is high-level language for computers.
-        </p>
-        <button class="btn"> JS</button>
-    </div>
-
-    <div>
-        <h2>NODEJS</h2>
-        <img src="assets/images/nodejslogo.jpg" alt="NODEJS">
-        <p>Node.js is an open source
-            server environment.
-            It allows userto run JavaScript on the server.
-        </p>
-        <button class="btn"> NODEJS</button>
-    </div>
-
-    <div>
-        <h2>REACTJS</h2>
-        <img src="assets/images/reactjslogo.png" alt="REACTJS">
-        <p>
-            React is a JavaScript library for
-            building user interfaces.
-            It is used to build single page applications.
-        </p>
-        <button class="btn">REACT</button>
-    </div>
-</div>  -->
 
 <mat-icon id="matId" color="primary" routerLink="/card">add_circle
 </mat-icon>
@@ -39,8 +6,9 @@
 <div class="container" >
 <div  *ngFor="let data of Cards">
     <h2>{{data.title}}</h2>
-    <img src={{data.logo}} />
+    <img src={{data.logo}} onerror="this.src='assets/images/default.png'" />
     <p>{{data.description}}</p>
-    <button class="btn">{{data.button}}</button>
+    <button class="btn">Learn More</button>    
 </div>
+
 </div>

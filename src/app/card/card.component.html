@@ -22,12 +22,10 @@
 
         <div>
             <label>Image</label><br>
-            <input type="file" formControlName="image" (change)="uploadimage($event)"><br><br>
+            <input type="file" formControlName="logo" (change)="uploadimage($event)">
+             <br><br>
         </div>
-
-        <button class="btn btn-success mr-5">Register</button><br>
-        <input type="reset" class="btn btn-danger mr-5" value="Cancel" routerLink="/boxes">
-
+        <button class="btn btn-success mr-5" >Register</button><br>
+        <input type="reset" class="btn btn-danger mr-5" value="Cancel" routerLink="/boxes"> 
     </div>
-
 </form>

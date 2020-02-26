@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
-
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AddcardService } from '../services/addcard.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card',
@@ -10,20 +11,24 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
 })
 export class CardComponent implements OnInit {
 
-  constructor(private builder: FormBuilder) { }
+  constructor(private builder: FormBuilder, private addCard: AddcardService, private router: Router) { }
   registerForm: FormGroup;
   submitted = false;
+
+  dataarray = [];
+
   ngOnInit() {
     this.registerForm = this.builder.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
-      image : ['']
+      logo: ['']
     });
+
   }
   get val() {
     return this.registerForm.controls;
   }
-  uploadimage(e){
+  uploadimage(e) {
     console.log(e);
     // this.registerForm.controls['image'].setValue('/home/some/image.img');
   }
@@ -32,6 +37,8 @@ export class CardComponent implements OnInit {
     if (this.registerForm.invalid) {
       return;
     }
-    // alert('SUCCESS!! \n\n' + JSON.stringify(this.registerForm.value, null, 5));
+    this.addCard.serviceCard.push(this.registerForm.value);
+    console.log(this.dataarray);
+    this.router.navigate(['boxes']);
   }
 }
