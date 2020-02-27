@@ -1,10 +1,15 @@
 import { Injectable } from '@angular/core';
-// import { cards } from '../home';
+import { CardInterface} from '../cardInterface';
+
 @Injectable({
   providedIn: 'root'
 })
 export class AddcardService {
-  serviceCard = [{ title : 'JAVASCRIPT',
+  serviceCard: CardInterface[];
+  constructor( ) {
+  this.serviceCard = [
+  {
+     title : 'JAVASCRIPT',
   description : 'JS is programming language of HTML and Web.It is high-level language for computers.',
   logo : 'assets/images/js.jpg '
 },
@@ -18,5 +23,5 @@ title : 'REACTJS',
 description : 'React is a JavaScript library for building user interfaces. It is used to build single page applications.',
 logo : 'assets/images/reactjslogo.png'
 }];
-  constructor() { }
+   }
 }
