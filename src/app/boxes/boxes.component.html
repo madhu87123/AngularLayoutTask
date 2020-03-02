@@ -3,12 +3,11 @@
 </mat-icon>
 <br>
 <br>
-<div class="container" >
-<div  *ngFor="let data of Cards">
-    <h2>{{data.title}}</h2>
+<div class="container" > 
+<div  *ngFor="let data of Cards " >
+    <h2> {{data.title}} </h2>
     <img src={{data.logo}} onerror="this.src='assets/images/default.png'" />
     <p>{{data.description}}</p>
-    <button class="btn">Learn More</button>    
+    <button class="btn" value="submit" (click)="idData(data)">Learn More</button>    
 </div>
-
 </div>

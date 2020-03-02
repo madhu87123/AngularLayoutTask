@@ -6,7 +6,11 @@ import { BoxesComponent } from './boxes/boxes.component';
 
 const routes: Routes = [
   {path : 'boxes' , component : BoxesComponent},
-  {path : 'card' , component : CardComponent}
+  {path : 'card' ,
+  children : [
+  {path : '' , component : CardComponent, data : { kind : 'create'}},
+  {path : 'edit/:id' , component : CardComponent , data :  { kind : 'edit'}}
+  ]}
 ];
 
 @NgModule({
