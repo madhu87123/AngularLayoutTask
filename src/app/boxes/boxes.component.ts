@@ -22,10 +22,5 @@ console.log(this.Cards);
   idData(data) {
     this.router.navigate(['/card/edit', data.id ]);
   }
-  findId(id) {
-
-   }
-
-
 }
 

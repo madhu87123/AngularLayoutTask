@@ -32,7 +32,7 @@
             </span>
 
             <span *ngIf="this.router.url != '/card'" >
-            <input type="button" *ngSwitchCase="edit" class="btn btn-success mr-5" (click)="onUpdate()" value="Update"><br>
+            <input type="button" class="btn btn-success mr-5" (click)="onUpdate(id)" value="Update"><br>
             <input type="reset" class="btn btn-danger mr-5" value="Delete" (click)="deleteUser(id)" routerLink="/boxes">
             </span>
 

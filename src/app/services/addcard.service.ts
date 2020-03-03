@@ -33,9 +33,11 @@ logo : 'assets/images/reactjslogo.png'
     this.serviceCard.push(card);
    }
    getValues(id: number) {
-return this.serviceCard.find(index => index.id === id);
+  return this.serviceCard.find(index => index.id === id);
    }
-   findId(id) {
-    var index = this.serviceCard.findIndex(item => item.id === id);
-   }
+  //  deleteUser(id) {
+  //    const inp = this.serviceCard.findIndex( item => item.id === id);
+  //    this.serviceCard.splice(inp, 1);
+  //    console.log(inp);
+  //  }
 }
