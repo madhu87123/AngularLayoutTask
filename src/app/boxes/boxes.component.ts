@@ -17,7 +17,6 @@ Cards = [];
 ngOnInit() {
 this.Cards = this.addCard.serviceCard;
 console.log(this.Cards);
-
   }
   idData(data) {
     this.router.navigate(['/card/edit', data.id ]);

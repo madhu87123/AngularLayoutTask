@@ -26,8 +26,8 @@ title : 'REACTJS',
 description : 'React is a JavaScript library for building user interfaces. It is used to build single page applications.',
 logo : 'assets/images/reactjslogo.png'
 }];
-   }
-   addId(card) {
+}
+  addId(card) {
     const val = this.serviceCard.length;
     card.id = val + 1;
     this.serviceCard.push(card);
@@ -35,9 +35,4 @@ logo : 'assets/images/reactjslogo.png'
    getValues(id: number) {
   return this.serviceCard.find(index => index.id === id);
    }
-  //  deleteUser(id) {
-  //    const inp = this.serviceCard.findIndex( item => item.id === id);
-  //    this.serviceCard.splice(inp, 1);
-  //    console.log(inp);
-  //  }
 }

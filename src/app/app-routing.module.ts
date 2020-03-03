@@ -8,8 +8,8 @@ const routes: Routes = [
   {path : 'boxes' , component : BoxesComponent},
   {path : 'card' ,
   children : [
-  {path : '' , component : CardComponent, data : { kind : 'create'}},
-  {path : 'edit/:id' , component : CardComponent , data :  { kind : 'edit'}}
+  {path : '' , component : CardComponent, data : { mode : 'create'}},
+  {path : 'edit/:id' , component : CardComponent , data :  { mode : 'edit'}}
   ]}
 ];
 
