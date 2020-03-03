@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AddcardService } from '../services/addcard.service';
 import { Router, ActivatedRoute } from '@angular/router';
 @Component({
@@ -11,11 +11,12 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class CardComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
-  title: string ;
-  description: string;
-  logo: string;
+  // title: string;
+  // description: string;
+  // logo: string;
   id: number;
   mode: string;
+  dateToday: string;
   constructor(private builder: FormBuilder, private addCard: AddcardService, private router: Router, private route: ActivatedRoute) { }
   ngOnInit() {
     this.registerForm = this.builder.group({
@@ -24,9 +25,9 @@ export class CardComponent implements OnInit {
       logo: [''],
     });
     this.route.data.subscribe((data: any) => {
-      this.mode = data;
-  });
-    if ( this.mode !== 'create') {
+      this.mode = data.mode;
+    });
+    if (this.mode !== 'add') {
       this.route.paramMap.subscribe(data => {
         this.id = +data.get('id');
         this.getValues(this.id);
@@ -48,6 +49,8 @@ export class CardComponent implements OnInit {
       return;
     }
     this.addCard.addId(this.registerForm.value);
+    // this.addCard.getDate(this.dateToday);
+    // console.log(this.dateToday);
     this.router.navigate(['boxes']);
   }
 
@@ -59,9 +62,12 @@ export class CardComponent implements OnInit {
     this.router.navigate(['/boxes']);
   }
 
-
   deleteUser(id) {
     const inp = this.addCard.serviceCard.findIndex(item => item.id === id);
     this.addCard.serviceCard.splice(inp, 1);
+  }
+  getDate(dateToday) {
+    this.dateToday  = new Date().toISOString();
+    console.log(dateToday );
   }
 }

@@ -1,6 +1,6 @@
-<form class="container" [formGroup]="registerForm" (ngSubmit)="onSubmit() ">
+<form class="container" [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="bg-primary ">
 
-    <div class="mt-5 pb-3 pl-sm-5 , card bg-primary , mx-auto" style="width: 40%;"  [ngSwitch]="whichView">
+    <div class="mt-5 pb-3 pl-sm-5, mx-auto" style="width: 40%;">
         <h2>LAYOUT </h2>
         <div class="formGroup">
             <label>Title</label><br>
@@ -26,16 +26,19 @@
             <br><br>
         </div>
         <div class="formGroup">
-            <span *ngIf= "mode === 'create'"  >
+            <div *ngIf="mode === 'add'" >
                 <input type="submit"  class="btn btn-success mr-5" value="Register"><br>
              <input type="reset" class="btn btn-danger mr-5" value="Cancel" routerLink="/boxes">
-            </span>
-
-            <span *ngIf="mode !== 'create'" >
+            </div>
+        </div> 
+        
+            <div class="formGroup">
+            <div *ngIf="mode === 'edit'" >
             <input type="button" class="btn btn-success mr-5" (click)="onUpdate(id)" value="Update"><br>
             <input type="reset" class="btn btn-danger mr-5" value="Delete" (click)="deleteUser(id)" routerLink="/boxes">
-            </span>
+            </div>
 
         </div>
+         <button type="button" class="btn btn-success mr-5"  (click)="getDate(dateToday)">date</button> 
     </div>
 </form>
