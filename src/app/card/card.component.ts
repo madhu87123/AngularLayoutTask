@@ -16,7 +16,8 @@ export class CardComponent implements OnInit {
   // logo: string;
   id: number;
   mode: string;
-  dateToday: string;
+  dateToday: Date;
+  create: string;
   constructor(private builder: FormBuilder, private addCard: AddcardService, private router: Router, private route: ActivatedRoute) { }
   ngOnInit() {
     this.registerForm = this.builder.group({
@@ -49,25 +50,27 @@ export class CardComponent implements OnInit {
       return;
     }
     this.addCard.addId(this.registerForm.value);
-    // this.addCard.getDate(this.dateToday);
-    // console.log(this.dateToday);
     this.router.navigate(['boxes']);
   }
-
-
   onUpdate(id: number) {
     const val = this.addCard.serviceCard.findIndex(item => item.id === id);
+    const createdate =  this.addCard.serviceCard[val].createdDate;
+    const create =  this.addCard.serviceCard[val].logo;
     this.addCard.serviceCard[val] = this.registerForm.value;
     this.addCard.serviceCard[val].id = this.id;
+    console.log(val);
+    console.log(id);
+    this.addCard.serviceCard[val].logo = create;
+    this.addCard.serviceCard[val].createdDate = createdate;
+    this.addCard.serviceCard[val].updatedDate = new Date();
     this.router.navigate(['/boxes']);
-  }
 
+  //  console.log(this.addCard.serviceCard);
+
+  }
   deleteUser(id) {
     const inp = this.addCard.serviceCard.findIndex(item => item.id === id);
     this.addCard.serviceCard.splice(inp, 1);
   }
-  getDate(dateToday) {
-    this.dateToday  = new Date().toISOString();
-    console.log(dateToday );
-  }
+
 }

@@ -16,10 +16,16 @@ Cards = [];
 
 ngOnInit() {
 this.Cards = this.addCard.serviceCard;
-console.log(this.Cards);
+// console.log(this.Cards);
+
   }
   idData(data) {
     this.router.navigate(['/card/edit', data.id ]);
+  }
+    sortDate() {
+    return this.addCard.serviceCard.sort((a , b) => {
+    return b.updatedDate - a.updatedDate;
+    });
   }
 }
 
