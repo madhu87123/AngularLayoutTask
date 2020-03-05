@@ -25,6 +25,12 @@
             <input type="file" formControlName="logo" (change)="uploadimage($event)">
             <br><br>
         </div>
+        <button type="button" (click)="addAddress()">Add Address</button>
+        <div  *ngFor="let tag of tags; let i = index">
+            <input type="text" >
+        <i class="material-icons align-middle text-danger " (click)=" removeAddress(i)">remove_circle</i>
+             
+        </div>
         <div class="formGroup">
             <div *ngIf="mode === 'add'" >
                 <input type="submit"  class="btn btn-success mr-5" value="Register"><br>
@@ -37,7 +43,7 @@
             <input type="button" class="btn btn-success mr-5" (click)="onUpdate(id)" value="Update"><br>
             <input type="reset" class="btn btn-danger mr-5" value="Delete" (click)="deleteUser(id)" routerLink="/boxes">
             </div>
-
+           
         </div>
     </div>
 </form>

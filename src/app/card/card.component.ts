@@ -18,6 +18,10 @@ export class CardComponent implements OnInit {
   mode: string;
   dateToday: Date;
   create: string;
+  tags: any[] = [{
+  fields: ''
+  }];
+
   constructor(private builder: FormBuilder, private addCard: AddcardService, private router: Router, private route: ActivatedRoute) { }
   ngOnInit() {
     this.registerForm = this.builder.group({
@@ -31,15 +35,21 @@ export class CardComponent implements OnInit {
     if (this.mode !== 'add') {
       this.route.paramMap.subscribe(data => {
         this.id = +data.get('id');
-        this.getValues(this.id);
+        const val = this.addCard.serviceCard.findIndex(item => item.id === this.id);
+        if (val === -1) {
+          this.router.navigate(['boxes']);
+        } else {
+          this.getValues(this.id);
+        }
+
       });
     }
   }
   getValues(id: number) {
+
     this.registerForm.controls.title.setValue(this.addCard.getValues(id).title);
     this.registerForm.controls.description.setValue(this.addCard.getValues(id).description);
   }
-
 
   get val() {
     return this.registerForm.controls;
@@ -50,27 +60,36 @@ export class CardComponent implements OnInit {
       return;
     }
     this.addCard.addId(this.registerForm.value);
-    this.router.navigate(['boxes']);
+    this.router.navigate(['/boxes']);
   }
   onUpdate(id: number) {
     const val = this.addCard.serviceCard.findIndex(item => item.id === id);
-    const createdate =  this.addCard.serviceCard[val].createdDate;
-    const create =  this.addCard.serviceCard[val].logo;
+    const createdate = this.addCard.serviceCard[val].createdDate;
+    const create = this.addCard.serviceCard[val].logo;
     this.addCard.serviceCard[val] = this.registerForm.value;
     this.addCard.serviceCard[val].id = this.id;
-    console.log(val);
-    console.log(id);
+
     this.addCard.serviceCard[val].logo = create;
+
     this.addCard.serviceCard[val].createdDate = createdate;
     this.addCard.serviceCard[val].updatedDate = new Date();
     this.router.navigate(['/boxes']);
 
-  //  console.log(this.addCard.serviceCard);
-
+    //  console.log(this.addCard.serviceCard);
   }
   deleteUser(id) {
     const inp = this.addCard.serviceCard.findIndex(item => item.id === id);
     this.addCard.serviceCard.splice(inp, 1);
   }
-
+  addAddress() {
+    this.tags.push({
+      fields: ''
+    });
+  }
+  removeAddress(i: number) {
+    if (i !== 0) {
+    this.tags.splice(i, 1);
+    console.log(i);
+    }
+  }
 }

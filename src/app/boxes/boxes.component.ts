@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AddcardService } from '../services/addcard.service';
-import {ActivatedRoute, Router} from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-boxes',
@@ -8,24 +8,29 @@ import {ActivatedRoute, Router} from '@angular/router';
   styleUrls: ['./boxes.component.css'],
 })
 export class BoxesComponent implements OnInit {
-Cards = [];
-
- constructor( private addCard: AddcardService, private router: Router, private route: ActivatedRoute) {
+  Cards = [];
+  showFirst = true;
+  constructor(private addCard: AddcardService, private router: Router, private route: ActivatedRoute) {
 
   }
 
-ngOnInit() {
-this.Cards = this.addCard.serviceCard;
-// console.log(this.Cards);
+  ngOnInit() {
+    this.Cards = this.addCard.serviceCard;
+    // console.log(this.Cards);
 
   }
   idData(data) {
-    this.router.navigate(['/card/edit', data.id ]);
+    this.router.navigate(['/card/edit', data.id]);
+  
+    if(data.id != this.addCard.serviceCard){}
   }
-    sortDate() {
-    return this.addCard.serviceCard.sort((a , b) => {
-    return b.updatedDate - a.updatedDate;
+  sortDate() {
+
+    this.addCard.serviceCard.sort((a, b) => {
+
+      return this.showFirst ? b.updatedDate - a.updatedDate : a.updatedDate - b.updatedDate;
     });
+    this.showFirst = !(this.showFirst);
   }
 }
 
